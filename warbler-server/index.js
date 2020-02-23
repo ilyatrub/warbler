@@ -7,10 +7,18 @@ const errorHandler = require('./handlers/error');
 const authRoutes = require('./routes/auth');
 const messagesRoutes = require('./routes/messages');
 const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
+const db = require('./models')
 
-const PORT = 8081;
+const PORT = 8080;
 
 app.use(cors());
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: ["http://localhost:3000"],
+//     optionsSuccessStatus: 200
+//   })
+// );
 app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes);
